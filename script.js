@@ -5,16 +5,17 @@ const buttonsContainer = document.querySelector(".buttons");
 const yesButton = document.querySelector(".btn--yes");
 const noButton = document.querySelector(".btn--no");
 const catImg = document.querySelector(".cat-img");
-const music1 = document.getElementById('music1')
-const music2 = document.getElementById('music2')
+const music1 = document.getElementById('music1');
+const music2 = document.getElementById('music2');
+const body = document.body;
 
 const MAX_IMAGES = 5;
+const colors = ["#a2d5f2", "#76ead7", "#f8b400", "#ff7e67", "#a3d8f4", "#b9f8e3", "#ffcc29", "#ff6f61"];
 
 let play = true;
 let noCount = 0;
 
 yesButton.addEventListener("click", handleYesClick);
-
 
 noButton.addEventListener("click", function () {
   music1.play();
@@ -24,10 +25,11 @@ noButton.addEventListener("click", function () {
     changeImage(imageIndex);
     resizeYesButton();
     updateNoButtonText();
+    changeBackgroundColor();
     if (noCount === MAX_IMAGES) {
       play = false;
     }
-  } 
+  }
 });
 
 function handleYesClick() {
@@ -36,6 +38,10 @@ function handleYesClick() {
   changeImage("yes");
   music2.play();
   music1.pause();
+  body.classList.add("birthday-pop");
+  setTimeout(() => {
+    body.classList.remove("birthday-pop");
+  }, 1000);
 }
 
 function resizeYesButton() {
@@ -66,4 +72,9 @@ function changeImage(image) {
 
 function updateNoButtonText() {
   noButton.innerHTML = generateMessage(noCount);
+}
+
+function changeBackgroundColor() {
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  body.style.backgroundColor = randomColor;
 }
