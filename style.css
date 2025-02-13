@@ -1,70 +1,140 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  background-color: #fff0f6;
-  font-family: "Protest Riot", sans-serif;
-}
-
-.container {
-  height: 100vh;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.cat-img {
-  width: 30rem;
-  height: 30rem;
-  margin-bottom: 2rem;
-}
-
-.title {
-  font-size: 3.6rem;
-  color: #f53699;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-
-  gap: 1rem;
-}
-
-.btn {
-  padding: 1.5rem 2.5rem;
-  border: none;
-  border-radius: 4px;
-
-  color: white;
-  font-size: 1.6rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: inline-block;
-}
-
-.btn--yes {
-  background-color: #40c057;
-}
-
-.btn--no {
-  background-color: #f03e3e;
-}
-
-.hidden {
-  display: none;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    font-family: "Protest Riot", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #a2d5f2; /* Default background color */
+    transition: background-color 0.5s ease;
+  }
+  
+  .navbar {
+    width: 100%;
+    background-color: #ff7e67; /* Coral color for navbar */
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .navbar h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container {
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+    margin-top: 8rem;
+  }
+  
+  .cat-img {
+    width: 30rem;
+    height: 30rem;
+    margin-bottom: 2rem;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .cat-img:hover {
+    transform: scale(1.1);
+  }
+  
+  .title {
+    font-size: 3.6rem;
+    color: #ff7e67; /* Coral color for title */
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: bounce 2s infinite;
+  }
+  
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .btn {
+    padding: 1.5rem 2.5rem;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  .btn--yes {
+    background-color: #40c057;
+  }
+  
+  .btn--yes:hover {
+    background-color: #37b24d;
+    transform: translateY(-5px);
+  }
+  
+  .btn--no {
+    background-color: #f03e3e;
+  }
+  
+  .btn--no:hover {
+    background-color: #e03131;
+    transform: translateY(-5px);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes birthdayPop {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .birthday-pop {
+    animation: birthdayPop 1s ease-in-out;
+  }
